@@ -150,16 +150,49 @@ require('lazy').setup({
       end,
     },
   },
-
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require("catppuccin").setup({
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          treesitter = true,
+          fidget = true,
+          which_key = true,
+          indent_blankline = {
+            enabled = true,
+            scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+            colored_indent_levels = false,
+          },
+          mason = true,
+          neotree = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { "italic" },
+              hints = { "italic" },
+              warnings = { "italic" },
+              information = { "italic" },
+            },
+            underlines = {
+              errors = { "underline" },
+              hints = { "underline" },
+              warnings = { "underline" },
+              information = { "underline" },
+            },
+            inlay_hints = {
+              background = true,
+            },
+          },
+        }
+      })
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -167,9 +200,9 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
         component_separators = '|',
         section_separators = '',
+        theme = 'catppuccin'
       },
     },
   },
@@ -298,12 +331,16 @@ vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true
 
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
-vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
+vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
+  { silent = true, noremap = true, desc = 'open document symbols' })
 vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
-vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
+vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics,
+  { silent = true, noremap = true, desc = 'open diagnostics' })
 -- Git
-vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits, { silent = true, noremap = true, desc = 'git commits' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { silent = true, noremap = true, desc = 'git status' })
+vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits,
+  { silent = true, noremap = true, desc = 'git commits' })
+vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status,
+  { silent = true, noremap = true, desc = 'git status' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
