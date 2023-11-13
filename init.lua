@@ -39,6 +39,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 --]]
 
 vim.opt.swapfile = false
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 
 -- Set <space> as the leader key
