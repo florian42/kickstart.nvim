@@ -40,7 +40,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 
 vim.opt.swapfile = false
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = false
 
 
 -- Set <space> as the leader key
@@ -158,6 +158,11 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require("catppuccin").setup({
+        custom_highlights = function(colors)
+          return {
+            Cursor = { fg = colors.red },
+          }
+        end,
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -650,7 +655,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = "copilot", group_index = 2 },
+    { name = "copilot",  group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
     { name = 'luasnip' },
   },
