@@ -338,6 +338,7 @@ vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
 vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
 vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics,
   { silent = true, noremap = true, desc = 'open diagnostics' })
+vim.keymap.set('n', '<leader>om', require('telescope.builtin').marks, { desc = '[O]pen [M]arks' })
 -- Git
 vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits,
   { silent = true, noremap = true, desc = 'git commits' })
