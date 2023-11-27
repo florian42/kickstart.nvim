@@ -158,11 +158,6 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        custom_highlights = function(colors)
-          return {
-            Cursor = { fg = colors.red },
-          }
-        end,
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -172,28 +167,13 @@ require('lazy').setup({
           which_key = true,
           indent_blankline = {
             enabled = true,
-            scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+            scope_color = "flamingo", -- catppuccin color (eg. `lavender`) Default: text
             colored_indent_levels = false,
           },
           mason = true,
           neotree = true,
           native_lsp = {
             enabled = true,
-            virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-            },
-            underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-            },
-            inlay_hints = {
-              background = true,
-            },
           },
         }
       })
@@ -209,7 +189,7 @@ require('lazy').setup({
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
-        theme = 'catppuccin'
+        theme = 'catppuccin',
       },
     },
   },
@@ -445,6 +425,7 @@ vim.defer_fn(function()
     auto_install = false,
 
     highlight = { enable = true },
+    additional_vim_regex_highlighting = false,
     indent = { enable = true },
     incremental_selection = {
       enable = true,
