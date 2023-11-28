@@ -315,7 +315,7 @@ vim.keymap.set('n', '<leader>bv', ':vsplit<CR>', { silent = true, noremap = true
 vim.keymap.set('n', '<leader>bh', ':split<CR>', { silent = true, noremap = true, desc = 'add horizontal split' })
 vim.keymap.set('n', '<leader>bs', ':w<CR>', { silent = true, noremap = true, desc = 'save buffer' })
 vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true, desc = 'format buffer' })
-
+vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
 vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
