@@ -430,6 +430,8 @@ vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'yaml', 'haskell' },
+    sync_install = false,
+    ignore_install = {},
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -442,8 +444,7 @@ vim.defer_fn(function()
       keymaps = {
         init_selection = '<c-space>',
         node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
+        node_decremental = '<c-s>',
       },
     },
     textobjects = {
