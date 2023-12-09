@@ -115,7 +115,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -361,16 +361,13 @@ vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
-vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
-  { silent = true, noremap = true, desc = 'open document symbols' })
+vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
 vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
 vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
 vim.keymap.set('n', '<leader>om', require('telescope.builtin').marks, { desc = '[O]pen [M]arks' })
 -- Git
-vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits,
-  { silent = true, noremap = true, desc = 'git commits' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status,
-  { silent = true, noremap = true, desc = 'git status' })
+vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits, { silent = true, noremap = true, desc = 'git commits' })
+vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { silent = true, noremap = true, desc = 'git status' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
