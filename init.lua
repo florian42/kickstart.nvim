@@ -41,6 +41,16 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.opt.swapfile = false
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.wrap = false
+-- Tab handling
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+--
+vim.opt.scrolloff = 999
+vim.opt.virtualedit = "block"
 
 
 -- Set <space> as the leader key
