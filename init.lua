@@ -50,8 +50,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 --
 vim.opt.scrolloff = 999
-vim.opt.virtualedit = "block"
-
+vim.opt.virtualedit = 'block'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -124,7 +123,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -200,11 +199,11 @@ require('lazy').setup({
     },
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
+      require('catppuccin').setup {
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -214,7 +213,7 @@ require('lazy').setup({
           which_key = true,
           indent_blankline = {
             enabled = true,
-            scope_color = "flamingo", -- catppuccin color (eg. `lavender`) Default: text
+            scope_color = 'flamingo', -- catppuccin color (eg. `lavender`) Default: text
             colored_indent_levels = false,
           },
           mason = true,
@@ -222,8 +221,8 @@ require('lazy').setup({
           native_lsp = {
             enabled = true,
           },
-        }
-      })
+        },
+      }
       vim.cmd.colorscheme 'catppuccin'
     end,
   },
@@ -365,17 +364,13 @@ vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
-vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
-  { silent = true, noremap = true, desc = 'open document symbols' })
+vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
 vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
-vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics,
-  { silent = true, noremap = true, desc = 'open diagnostics' })
+vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
 vim.keymap.set('n', '<leader>om', require('telescope.builtin').marks, { desc = '[O]pen [M]arks' })
 -- Git
-vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits,
-  { silent = true, noremap = true, desc = 'git commits' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status,
-  { silent = true, noremap = true, desc = 'git status' })
+vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits, { silent = true, noremap = true, desc = 'git commits' })
+vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { silent = true, noremap = true, desc = 'git status' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -705,7 +700,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = "copilot",  group_index = 2 },
+    { name = 'copilot', group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
     { name = 'luasnip' },
     { name = 'path' },

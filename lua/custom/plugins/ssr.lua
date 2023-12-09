@@ -1,13 +1,13 @@
 return {
-  "cshuaimin/ssr.nvim",
+  'cshuaimin/ssr.nvim',
   keys = {
     {
-      "<leader>sR",
+      '<leader>sR',
       function()
-        require("ssr").open()
+        require('ssr').open()
       end,
-      mode = { "n", "x" },
-      desc = "Structural Replace",
+      mode = { 'n', 'x' },
+      desc = 'Structural Replace',
     },
   },
 }
