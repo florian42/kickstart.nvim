@@ -347,6 +347,8 @@ vim.keymap.set('n', 'en', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+
 -- Custom keymaps
 -- Buffers
 vim.keymap.set('n', '<leader>bv', ':vsplit<CR>', { silent = true, noremap = true, desc = 'add vertical split' })
