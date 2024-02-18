@@ -191,32 +191,16 @@ require('lazy').setup({
     },
   },
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
+    'folke/tokyonight.nvim',
     lazy = false,
+    priority = 1000,
+    opts = {},
     config = function()
-      require('catppuccin').setup {
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          treesitter = true,
-          fidget = true,
-          which_key = true,
-          indent_blankline = {
-            enabled = true,
-            scope_color = 'flamingo', -- catppuccin color (eg. `lavender`) Default: text
-            colored_indent_levels = false,
-          },
-          mason = true,
-          neotree = true,
-          native_lsp = {
-            enabled = true,
-          },
-        },
+      require('tokyonight').setup {
+        style = 'storm', -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        light_style = 'day', -- The theme is used when the background is set to light
       }
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
   {
@@ -228,7 +212,7 @@ require('lazy').setup({
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
-        theme = 'catppuccin',
+        theme = 'tokyonight',
       },
     },
   },
