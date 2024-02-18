@@ -357,12 +357,12 @@ end)
 vim.keymap.set('n', '<leader>bv', ':vsplit<CR>', { silent = true, noremap = true, desc = 'add vertical split' })
 vim.keymap.set('n', '<leader>bh', ':split<CR>', { silent = true, noremap = true, desc = 'add horizontal split' })
 vim.keymap.set('n', '<leader>bs', ':w<CR>', { silent = true, noremap = true, desc = 'save buffer' })
+vim.keymap.set('n', '<leader>bq', ':q<CR>', { silent = true, noremap = true, desc = 'quit buffer' })
 vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true, desc = 'format buffer' })
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
 vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
-vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
 vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
 vim.keymap.set('n', '<leader>om', require('telescope.builtin').marks, { desc = '[O]pen [M]arks' })
 -- Git
@@ -429,17 +429,17 @@ end
 local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
-    require('telescope.builtin').live_grep({
+    require('telescope.builtin').live_grep {
       search_dirs = { git_root },
-    })
+    }
   end
 end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>ob', require('telescope.builtin').buffers, { desc = 'Find [Open] [b]uffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -472,11 +472,9 @@ vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'yaml', 'haskell' },
-    sync_install = false,
-    ignore_install = {},
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
     -- List of parsers to ignore installing
