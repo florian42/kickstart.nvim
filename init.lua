@@ -97,7 +97,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -115,7 +115,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -347,7 +347,9 @@ vim.keymap.set('n', 'en', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set('n', '<leader>xx', function()
+  require('trouble').toggle()
+end)
 
 -- Custom keymaps
 -- Buffers
@@ -358,17 +360,13 @@ vim.keymap.set('n', '<leader>bf', ':Format<CR>', { silent = true, noremap = true
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 -- Open
 vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
-vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter,
-  { silent = true, noremap = true, desc = 'open document symbols' })
+vim.keymap.set('n', '<leader>os', require('telescope.builtin').treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
 vim.keymap.set('n', '<leader>ob', ':Neotree float buffers<CR>', { silent = true, noremap = true, desc = 'open buffers' })
-vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics,
-  { silent = true, noremap = true, desc = 'open diagnostics' })
+vim.keymap.set('n', '<leader>od', require('telescope.builtin').diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
 vim.keymap.set('n', '<leader>om', require('telescope.builtin').marks, { desc = '[O]pen [M]arks' })
 -- Git
-vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits,
-  { silent = true, noremap = true, desc = 'git commits' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status,
-  { silent = true, noremap = true, desc = 'git status' })
+vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits, { silent = true, noremap = true, desc = 'git commits' })
+vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { silent = true, noremap = true, desc = 'git status' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -390,6 +388,11 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+    },
+  },
+  pickers = {
+    oldfiles = {
+      cwd_only = true,
     },
   },
 }
@@ -661,9 +664,11 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 --
 local has_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+    return false
+  end
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match '^%s*$' == nil
 end
 
 local cmp = require 'cmp'
