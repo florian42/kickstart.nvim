@@ -407,11 +407,11 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>os', builtin.treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
-    vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
-    vim.keymap.set('n', '<leader>om', builtin.marks, { desc = '[O]pen [M]arks' })
-    -- Git
-    vim.keymap.set('n', '<leader>gc', builtin.git_commits, { silent = true, noremap = true, desc = 'git commits' })
-    vim.keymap.set('n', '<leader>gs', builtin.git_status, { silent = true, noremap = true, desc = 'git status' })
+      vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
+      vim.keymap.set('n', '<leader>om', builtin.marks, { desc = '[O]pen [M]arks' })
+      -- Git
+      vim.keymap.set('n', '<leader>gc', builtin.git_commits, { silent = true, noremap = true, desc = 'git commits' })
+      vim.keymap.set('n', '<leader>gs', builtin.git_status, { silent = true, noremap = true, desc = 'git status' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -573,7 +573,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -581,7 +581,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        tsserver = {},
         --
 
         lua_ls = {
@@ -655,11 +655,11 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
       },
     },
   },
@@ -881,7 +881,6 @@ require('lazy').setup({
       --    - Incremental selection: Included, see :help nvim-treesitter-incremental-selection-mod
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-
     end,
   },
 
