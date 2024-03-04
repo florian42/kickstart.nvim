@@ -102,7 +102,7 @@ vim.opt.virtualedit = 'block'
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- vim.opt.background = 'light'
+vim.opt.background = 'light'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -764,8 +764,14 @@ require('lazy').setup {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
+      require('tokyonight').setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        style = 'storm', -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        light_style = 'day', -- The theme is used when the background is set to light
+      }
       -- Load the colorscheme here
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight'
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
