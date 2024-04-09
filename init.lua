@@ -592,6 +592,10 @@ require('lazy').setup {
             basedpyright = {
               analysis = {
                 typeCheckingMode = 'basic',
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                autoImportCompletions = true,
+                diagnosticsMode = 'openFilesOnly',
               },
             },
           },
