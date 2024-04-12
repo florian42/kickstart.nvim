@@ -105,7 +105,7 @@ vim.opt.conceallevel = 2
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- vim.opt.background = 'light'
+vim.opt.background = 'light'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
