@@ -406,18 +406,13 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sc', require('telescope.builtin').resume, {
-        noremap = true,
-        silent = true,
-        desc = 'Resume',
-      })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>os', builtin.treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
       vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
-      vim.keymap.set('n', '<leader>om', builtin.marks, { desc = '[O]pen [M]arks' })
+      vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
       -- Git
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, { silent = true, noremap = true, desc = 'git commits' })
       vim.keymap.set('n', '<leader>gs', builtin.git_status, { silent = true, noremap = true, desc = 'git status' })
@@ -849,7 +844,7 @@ require('lazy').setup {
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
-      require('mini.jump').setup() -- Jump to next/previous single character
+      -- require('mini.jump').setup() -- Jump to next/previous single character
       require('mini.cursorword').setup() -- Automatic highlighting of word under cursor
     end,
   },
