@@ -21,16 +21,11 @@ return {
         python = { 'black' },
         haskell = { 'ormolu' },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 500,
-      },
     }
 
     vim.keymap.set({ 'n', 'v' }, '<leader>cf', function()
       conform.format {
-        lsp_fallback = true,
+        lsp_fallback = false,
         async = false,
         timeout_ms = 3000,
       }
