@@ -960,8 +960,8 @@ require('lazy').setup {
             [']['] = '@class.outer',
           },
           goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
+            ['<leader>mF'] = '@function.outer',
+            ['<leader>mc'] = '@class.outer',
           },
           goto_previous_end = {
             ['[M'] = '@function.outer',
