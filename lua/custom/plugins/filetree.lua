@@ -8,6 +8,11 @@ return {
   },
   config = function()
     require('neo-tree').setup {
+      sources = {
+        'filesystem',
+        'document_symbols',
+        'git_status',
+      },
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
@@ -41,4 +46,16 @@ return {
       },
     }
   end,
+  keys = {
+    {
+      '<leader>os',
+      '<cmd>Neotree document_symbols<cr>',
+      desc = '[O]pen Document [S]ymbols',
+    },
+    {
+      '<leader>ot',
+      '<cmd>Neotree toggle<CR>',
+      desc = '[O]pen [T]ree',
+    },
+  },
 }

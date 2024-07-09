@@ -214,8 +214,6 @@ vim.keymap.set('n', '<leader>bh', ':split<CR>', { silent = true, noremap = true,
 vim.keymap.set('n', '<leader>bs', ':w<CR>', { silent = true, noremap = true, desc = 'save buffer' })
 vim.keymap.set('n', '<leader>bq', ':q<CR>', { silent = true, noremap = true, desc = 'quit buffer' })
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
--- Open
-vim.keymap.set('n', '<leader>ot', ':Neotree toggle<CR>', { silent = true, noremap = true, desc = 'toggle file tree' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -415,7 +413,6 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>os', builtin.treesitter, { silent = true, noremap = true, desc = 'open document symbols' })
       vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
       -- Git
