@@ -854,7 +854,7 @@ require('lazy').setup {
     'echasnovski/mini.nvim',
     config = function()
       -- minimal git integration
-      require('mini.git').setup()
+      -- require('mini.git').setup()
       -- Better Around/Inside textobjects
       --
       -- Examples:
