@@ -98,7 +98,7 @@ vim.opt.shiftwidth = 4
 vim.opt.virtualedit = 'block'
 
 -- for obsidian plugin
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -108,7 +108,7 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-vim.opt.background = 'light'
+-- vim.opt.background = 'light'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
