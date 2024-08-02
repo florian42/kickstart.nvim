@@ -215,6 +215,14 @@ vim.keymap.set('n', '<leader>bs', ':w<CR>', { silent = true, noremap = true, des
 vim.keymap.set('n', '<leader>bq', ':q<CR>', { silent = true, noremap = true, desc = 'quit buffer' })
 vim.keymap.set('n', '<leader>bz', ':ZenMode<CR>', { silent = true, noremap = true, desc = 'toggle Zen mode' })
 
+-- Markers
+vim.keymap.set('n', '<leader>ma', ':mark ', { silent = false, noremap = true, desc = 'Add a marker' })
+vim.keymap.set('n', '<leader>ml', ':marks<CR>', { silent = true, noremap = true, desc = 'List all markers' })
+vim.keymap.set('n', '<leader>mc', ':delmarks A-Z0-9<CR>', { silent = true, noremap = true, desc = 'Clear all local markers' })
+vim.keymap.set('n', '<leader>mC', ':delmarks A-Z0-9<CR>:delmarks!<CR>', { silent = true, noremap = true, desc = 'Clear all markers including global' })
+vim.keymap.set('n', '<leader>mj', '`', { silent = false, noremap = true, desc = 'Jump to a mark' })
+
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -313,6 +321,7 @@ require('lazy').setup {
         { '<leader>w', name = '[W]orkspace' },
         { '<leader>t', name = '[T]oggle' },
         { '<leader>h', name = 'Git [H]unk' },
+        { '<leader>m', name = '[M]arker' },
       }
       -- visual mode
       require('which-key').add { { '<leader>h', name = 'Git [H]unk', mode = 'v' } }
@@ -841,7 +850,7 @@ require('lazy').setup {
       vim.cmd.colorscheme 'tokyonight'
 
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 
@@ -894,6 +903,7 @@ require('lazy').setup {
     build = ':TSUpdate',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
     },
     opts = {
       ensure_installed = {
@@ -949,18 +959,18 @@ require('lazy').setup {
         move = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ['<leader>mf'] = '@function.outer',
-            ['<leader>mc'] = '@class.outer',
-          },
+          -- goto_next_start = {
+          --   ['<leader>mf'] = '@function.outer',
+          --   ['<leader>mc'] = '@class.outer',
+          -- },
           goto_next_end = {
             [']M'] = '@function.outer',
             [']['] = '@class.outer',
           },
-          goto_previous_start = {
-            ['<leader>mF'] = '@function.outer',
-            ['<leader>mc'] = '@class.outer',
-          },
+          -- goto_previous_start = {
+          --   ['<leader>mF'] = '@function.outer',
+          --   ['<leader>mc'] = '@class.outer',
+          -- },
           goto_previous_end = {
             ['[M'] = '@function.outer',
             ['[]'] = '@class.outer',
@@ -991,6 +1001,7 @@ require('lazy').setup {
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      -- require('nvim-treesitter-context').setup() -> it is installed but calling setup is optional
     end,
   },
 
