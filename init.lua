@@ -222,7 +222,6 @@ vim.keymap.set('n', '<leader>mc', ':delmarks A-Z0-9<CR>', { silent = true, norem
 vim.keymap.set('n', '<leader>mC', ':delmarks A-Z0-9<CR>:delmarks!<CR>', { silent = true, noremap = true, desc = 'Clear all markers including global' })
 vim.keymap.set('n', '<leader>mj', '`', { silent = false, noremap = true, desc = 'Jump to a mark' })
 
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -632,7 +631,13 @@ require('lazy').setup {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        tsserver = {
+          init_options = {
+            preferences = {
+              importModuleSpecifierPreference = 'non-relative',
+            },
+          },
+        },
         --
 
         lua_ls = {
