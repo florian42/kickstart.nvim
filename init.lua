@@ -650,7 +650,6 @@ require('lazy').setup {
           },
         },
         --
-
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -665,6 +664,7 @@ require('lazy').setup {
             },
           },
         },
+        gopls = {}
       }
 
       -- Ensure the servers and tools above are installed

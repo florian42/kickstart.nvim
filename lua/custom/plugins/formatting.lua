@@ -20,12 +20,13 @@ return {
         lua = { 'stylua' },
         python = { 'black' },
         haskell = { 'ormolu' },
+        go = { 'gofmt ' }
       },
     }
 
     vim.keymap.set({ 'n', 'v' }, '<leader>cf', function()
       conform.format {
-        lsp_fallback = false,
+        lsp_fallback = true,
         async = false,
         timeout_ms = 3000,
       }
