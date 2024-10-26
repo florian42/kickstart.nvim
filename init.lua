@@ -387,11 +387,7 @@ require('lazy').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = { layout_strategy = 'vertical' },
         pickers = {
           oldfiles = {
             cwd_only = true,
@@ -664,7 +660,7 @@ require('lazy').setup {
             },
           },
         },
-        gopls = {}
+        gopls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -946,7 +942,7 @@ require('lazy').setup {
         'diff',
         'query',
         'vim',
-        'vimdoc'
+        'vimdoc',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
