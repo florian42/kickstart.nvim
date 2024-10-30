@@ -414,13 +414,20 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local action_layout = require 'telescope.actions.layout'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        --
-        defaults = { layout_strategy = 'vertical' },
-        mappings = {
-           i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        defaults = {
+          layout_config = { height = 0.95, width = 0.95 },
+          mappings = {
+            n = {
+              ['<M-p>'] = action_layout.toggle_preview,
+            },
+            i = {
+              ['<M-p>'] = action_layout.toggle_preview,
+            },
+          },
         },
         pickers = {
           oldfiles = {
@@ -682,13 +689,14 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        ts_ls = {
-          init_options = {
-            preferences = {
-              importModuleSpecifierPreference = 'non-relative',
-            },
-          },
-        },
+        -- Substitue with typescript tools
+        -- ts_ls = {
+        --   init_options = {
+        --     preferences = {
+        --       importModuleSpecifierPreference = 'non-relative',
+        --     },
+        --   },
+        -- },
         --
         lua_ls = {
           -- cmd = {...},
