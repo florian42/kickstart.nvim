@@ -84,7 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 --
-require("options")
+require 'options'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -638,13 +638,16 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
+          -- {
+          --   'rafamadriz/friendly-snippets',
+          --   config = function()
+          --     require('luasnip.loaders.from_vscode').lazy_load()
+          --   end,
+          -- },
         },
+        config = function()
+          require('luasnip.loaders.from_vscode').lazy_load({paths = "~/.config/nvim/snippets"})
+        end,
       },
       'saadparwaiz1/cmp_luasnip',
 
@@ -652,6 +655,7 @@ require('lazy').setup({
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
     },
     config = function()
@@ -970,4 +974,4 @@ require('lazy').setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 -- Load Custom Keymaps
-require('keymaps')
+require 'keymaps'
