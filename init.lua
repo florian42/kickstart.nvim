@@ -706,13 +706,13 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- Substitue with typescript tools
-        ts_ls = {
-          init_options = {
-            preferences = {
-              importModuleSpecifierPreference = 'non-relative',
-            },
-          },
-        },
+        -- ts_ls = {
+        --   init_options = {
+        --     preferences = {
+        --       importModuleSpecifierPreference = 'non-relative',
+        --     },
+        --   },
+        -- },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
