@@ -12,6 +12,10 @@ return {
     statuscolumn = { enabled = false },
     words = { enabled = false },
   },
+  config = function()
+    local Snacks = require 'snacks'
+    Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
+  end,
   keys = {
     {
       '<leader>gg',
