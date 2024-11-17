@@ -454,7 +454,17 @@ require('lazy').setup({
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          local showSymbolFinder = function()
+            -- https://github.com/nvim-telescope/telescope.nvim/issues/901
+            -- lowercase for simplicity :)
+            local lsp_symbols = vim.tbl_map(string.lower, vim.lsp.protocol.SymbolKind)
+            -- define a filter function to excl. undesired symbols
+            local symbols = vim.tbl_filter(function(symbol)
+              return symbol ~= 'property' and symbol ~= 'variable'
+            end, lsp_symbols)
+            require('telescope.builtin').lsp_document_symbols { symbols = symbols }
+          end
+          map('<leader>ds', showSymbolFinder, '[D]ocument [S]ymbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
@@ -646,7 +656,7 @@ require('lazy').setup({
           -- },
         },
         config = function()
-          require('luasnip.loaders.from_vscode').lazy_load({paths = "~/.config/nvim/snippets"})
+          require('luasnip.loaders.from_vscode').lazy_load { paths = '~/.config/nvim/snippets' }
         end,
       },
       'saadparwaiz1/cmp_luasnip',
