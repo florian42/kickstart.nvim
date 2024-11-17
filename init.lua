@@ -293,6 +293,11 @@ require('lazy').setup({
           oldfiles = {
             cwd_only = true,
           },
+          lsp_references = {
+            fname_width = 80,
+            include_declaration = false,
+            previewer = false,
+          },
         },
         extensions = {
           ['ui-select'] = {
