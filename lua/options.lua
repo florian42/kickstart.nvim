@@ -22,9 +22,8 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
--- vim.opt.background = 'light'
+vim.opt.background = 'light'
 vim.cmd 'colorscheme default'
-vim.opt.background = 'dark'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
