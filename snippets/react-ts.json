@@ -38,5 +38,10 @@
     "prefix": "tita",
     "body": ["it('should $1', async () => {", "  $0", "})", ""],
     "description": "Testing async `it` block"
+  },
+  "reactFunctionComponent": {
+    "prefix": "rfc",
+    "body": "\n\ntype ${TM_FILENAME_BASE}Props = {}\n\nexport function ${TM_FILENAME_BASE}(props: ${TM_FILENAME_BASE}Props) {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}",
+    "description": "Creates a React functional component"
   }
 }

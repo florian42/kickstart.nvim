@@ -328,7 +328,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sG', function()
         require('telescope.builtin').grep_string {
           cwd = vim.fn.input('Path to search: ', '', 'dir'),
-          prompt_title = 'Find Files in Directory',
+          prompt_title = 'Grep String in Directory',
         }
       end, { desc = '[S]earch [G]rep in directory' })
 
@@ -338,9 +338,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
-      -- Git
-      vim.keymap.set('n', '<leader>gc', builtin.git_commits, { silent = true, noremap = true, desc = 'git commits' })
-      vim.keymap.set('n', '<leader>gs', builtin.git_status, { silent = true, noremap = true, desc = 'git status' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -672,6 +669,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      { 'petertriho/cmp-git', opts = {} },
     },
     config = function()
       -- See `:help cmp`
@@ -748,29 +746,27 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'buffer' },
           { name = 'lazydev' },
         },
       }
     end,
   },
 
-  -- { -- You can easily change to a different colorscheme.
-  --   -- Change the name of the colorscheme plugin below, and then
-  --   -- change the command in the config to whatever the name of that colorscheme is.
-  --   --
-  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  --   'folke/tokyonight.nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   init = function()
-  --     -- Load the colorscheme here.
-  --     -- Like many other themes, this one has different styles, and you could load
-  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  --     vim.cmd.colorscheme 'tokyonight-night'
-  --
-  --     -- You can configure highlights by doing something like:
-  --     vim.cmd.hi 'Comment gui=none'
-  --   end,
-  -- },
+  { -- You can easily change to a different colorscheme.
+    --   -- Change the name of the colorscheme plugin below, and then
+    --   -- change the command in the config to whatever the name of that colorscheme is.
+    --   --
+    --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'folke/tokyonight.nvim',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.cmd.colorscheme 'tokyonight'
+    end,
+  },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -844,6 +840,11 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
+        'git_config',
+        'gitcommit',
+        'git_rebase',
+        'gitignore',
+        'gitattributes',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
