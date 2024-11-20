@@ -14,6 +14,7 @@ return {
   },
   config = function()
     local Snacks = require 'snacks'
+    Snacks.setup()
     Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
   end,
   keys = {

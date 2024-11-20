@@ -326,7 +326,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sG', function()
-        require('telescope.builtin').grep_string {
+        require('telescope.builtin').live_grep {
           cwd = vim.fn.input('Path to search: ', '', 'dir'),
           prompt_title = 'Grep String in Directory',
         }
@@ -335,9 +335,10 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>od', builtin.diagnostics, { silent = true, noremap = true, desc = 'open diagnostics' })
+      vim.keymap.set('n', '<leader>,', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>', { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
+      vim.keymap.set('n', '<leader>sc', '<cmd>Telescope command_history<cr>', { desc = '[S]earch [C]ommand History' })
+      vim.keymap.set('n', '<leader>sq', '<cmd>Telescope quickfix<cr>', { desc = '[S]earch [Q]ickfix List' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -808,6 +809,9 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
       -- require('mini.jump').setup() -- Jump to next/previous single character
       require('mini.cursorword').setup() -- Automatic highlighting of word under cursor
+
+      -- Text edit operators
+      require('mini.operators').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -878,24 +882,13 @@ require('lazy').setup({
             ['ic'] = '@class.inner',
           },
         },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          -- goto_next_start = {
-          --   ['<leader>mf'] = '@function.outer',
-          --   ['<leader>mc'] = '@class.outer',
-          -- },
-          goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
-          },
-          -- goto_previous_start = {
-          --   ['<leader>mF'] = '@function.outer',
-          --   ['<leader>mc'] = '@class.outer',
-          -- },
-          goto_previous_end = {
-            ['[M'] = '@function.outer',
-            ['[]'] = '@class.outer',
+        textobjects = {
+          move = {
+            enable = true,
+            goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
+            goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
+            goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
+            goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
           },
         },
         swap = {
