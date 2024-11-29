@@ -1,5 +1,6 @@
 return {
   'pwntester/octo.nvim',
+  version = '*',
   requires = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',

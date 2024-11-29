@@ -2,6 +2,7 @@ return {
   -- Source: https://www.josean.com/posts/neovim-linting-and-formatting
   'stevearc/conform.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
+  version = '*',
   config = function()
     local conform = require 'conform'
 
@@ -20,7 +21,7 @@ return {
         lua = { 'stylua' },
         python = { 'black' },
         haskell = { 'ormolu' },
-        go = { 'gofmt ' }
+        go = { 'gofmt ' },
       },
     }
 
