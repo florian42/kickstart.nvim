@@ -1,5 +1,6 @@
 return {
   'windwp/nvim-ts-autotag',
+  version = "*",
   opts = {
     -- Removed markdown due to errors
     filetypes = {

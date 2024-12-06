@@ -1,5 +1,6 @@
 return {
   'ruifm/gitlinker.nvim',
+  version = "*",
   dependencies = {
     'nvim-lua/plenary.nvim'
   },
