@@ -595,6 +595,7 @@ require('lazy').setup({
           },
         },
         gopls = {},
+        ocamllsp = {}
       }
 
       -- Ensure the servers and tools above are installed
@@ -845,6 +846,7 @@ require('lazy').setup({
         'git_rebase',
         'gitignore',
         'gitattributes',
+        'ocaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
