@@ -22,6 +22,7 @@ return {
         python = { 'black' },
         haskell = { 'ormolu' },
         go = { 'gofmt ' },
+        ocaml = { 'ocamlformat' }
       },
     }
 
