@@ -32,6 +32,20 @@ return {
   end,
   keys = {
     {
+      '<leader>os',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Toggle Scratch Buffer',
+    },
+    {
+      '<leader>S',
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = 'Select Scratch Buffer',
+    },
+    {
       '<leader>gg',
       function()
         Snacks.lazygit()
